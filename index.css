@@ -1,8 +1,12 @@
+
+
+/* Layouts */
 .card-layout {
-  width: 550px;
-  height: 773px;
+  width: 28em;
+  height: 49em;
   margin: 20px auto;
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 .top-imgs {
@@ -15,19 +19,55 @@
 }
 
 .logo, .top-imgs, .actions {
-  margin:10px ;
+  margin: 10px ;
 }
 
 .actions, header {
   display: flex;
 }
 
-.actions {
+header {
+  justify-content: space-between;
+}
+
+/* Card Content */
+
+.image-dog-container {
+  display: flex;
+  margin: 0;
   justify-content: center;
 }
 
-header {
-  justify-content: space-between;
+.dog-card {
+  position: relative;
+}
+
+.dog-images {
+  width: 27em;
+  border-radius: 5px;
+}
+
+.title, .bio {
+  position: absolute;
+  margin-left: 20px;
+}
+
+.title {
+  bottom: 40px;
+  color: white;
+}
+
+.bio {
+  bottom: 20px;
+  color: #B7B7B7;
+
+}
+
+/* actions */
+
+.actions {
+  justify-content: center;
+  align-items: center;
 }
 
 .action-btn {
@@ -35,5 +75,6 @@ header {
   width: 40px;
   padding: 15px;
   border: 1px solid whitesmoke;
-  box-shadow: 5px 10px 18px #888888:
+  box-shadow: 5px 10px 18px #888888;
+  margin: 0 1em 0 1em;
 }
