@@ -1,0 +1,39 @@
+.card-layout {
+  width: 550px;
+  height: 773px;
+  margin: 20px auto;
+  border: 1px solid black;
+}
+
+.top-imgs {
+  width: 34px;
+  height: 34px;
+}
+
+.logo {
+  width: 84px
+}
+
+.logo, .top-imgs, .actions {
+  margin:10px ;
+}
+
+.actions, header {
+  display: flex;
+}
+
+.actions {
+  justify-content: center;
+}
+
+header {
+  justify-content: space-between;
+}
+
+.action-btn {
+  border-radius: 50%;
+  width: 40px;
+  padding: 15px;
+  border: 1px solid whitesmoke;
+  box-shadow: 5px 10px 18px #888888:
+}
