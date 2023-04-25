@@ -9,35 +9,56 @@ let indexOfDog = 0;
 
 let dogProfileArray = new Dog(dogs[indexOfDog]);
 let isWaiting = false;
+let likedIsWaiting = false;
+let dislikedIsWaiting = false;
 
 function heartBtnClick() {
-  dogProfileArray.hasBeenLiked = true;
-  dogProfileArray.hasBeenSwiped = false;
-  likedBtn.classList.add("liked");
-  dislikedBtn.classList.remove("dis-liked");
-  render();
-  getNewDogProfile();
+  if (!likedIsWaiting) {
+    dogProfileArray.hasBeenLiked = true;
+    dogProfileArray.hasBeenSwiped = false;
+    likedBtn.classList.add("liked");
+    dislikedBtn.classList.remove("dis-liked");
+    likedIsWaiting = true;
+    dislikedIsWaiting = true;
+    isWaiting = true;
+    render();
+    getNewDogProfile();
+  }
 }
 
 function crossBtnClick() {
-  dogProfileArray.hasBeenLiked = false;
-  dogProfileArray.hasBeenSwiped = true;
-  dislikedBtn.classList.add("dis-liked");
-  likedBtn.classList.remove("liked");
-  render();
-  getNewDogProfile();
+  if (!dislikedIsWaiting) {
+    dogProfileArray.hasBeenLiked = false;
+    dogProfileArray.hasBeenSwiped = true;
+    dislikedBtn.classList.add("dis-liked");
+    likedBtn.classList.remove("liked");
+    likedIsWaiting = true;
+    dislikedIsWaiting = true;
+    isWaiting = true;
+    render();
+    getNewDogProfile();
+  }
 }
 
 function getNewDogProfile() {
-  setTimeout(function () {
-    console.log(indexOfDog);
-    if (indexOfDog < dogs.length) {
-      indexOfDog += 1;
-    }
-    console.log(indexOfDog);
-    dogProfileArray = new Dog(dogs[indexOfDog]);
-    render();
-  }, 3000);
+  if (isWaiting) {
+    setTimeout(function () {
+      if (indexOfDog < dogs.length - 1) {
+        indexOfDog += 1;
+      } else {
+        likedIsWaiting = true;
+        dislikedIsWaiting = true;
+        return (document.getElementById("image-dog-container").innerHTML = "Thank you!");
+      }
+      dogProfileArray = new Dog(dogs[indexOfDog]);
+      isWaiting = false;
+      dislikedIsWaiting = false;
+      likedIsWaiting = false;
+      likedBtn.disabled = false;
+      dislikedBtn.disabled = false;
+      render();
+    }, 2000);
+  }
 }
 
 function render() {
