@@ -63,6 +63,14 @@ header {
 
 }
 
+.badge-like img, .badge-disliked img {
+  position: absolute;
+  width: 12em;
+  top: 55px;
+  left: 12px;
+  transform: rotate(325deg);
+}
+
 /* actions */
 
 .actions {
@@ -77,4 +85,22 @@ header {
   border: 1px solid whitesmoke;
   box-shadow: 5px 10px 18px #888888;
   margin: 0 1em 0 1em;
+}
+
+.heart-btn:hover {
+  background-color: #DBFFF4;
+;
+}
+
+.cross-btn:hover {
+  background-color: #FFE7EF;
+
+}
+
+.liked {
+  background-color: #DBFFF4;
+}
+
+.dis-liked {
+  background-color: #FFE7EF;
 }
